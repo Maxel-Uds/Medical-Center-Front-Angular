@@ -1,0 +1,25 @@
+<body class="app">
+    <header class="header d-xl-flex flex-column">
+        <p class="lead text-muted">Centro Médico</p>
+    </header>
+
+    <aside class="menu">
+        <hr/>
+        <nav class="links d-xl-grid">            
+            <a class="link" routerLink="/consulta/gerenciar">Consultas</a>
+            <a class="link" routerLink="/consulta/gerenciar">Médicos</a>
+            <a class="link" routerLink="/consulta/gerenciar">Pacientes</a>
+            <a class="link" routerLink="/consulta/gerenciar">Tipos de Consulta</a>
+        </nav>
+    </aside>
+
+    <main class="content container-fluid">
+        <div class="p-3 mt-3">
+            <router-outlet> </router-outlet>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <span>Trabalho da matéria de Desenvolvimento de Software Visual</span>
+    </footer>
+</body>
