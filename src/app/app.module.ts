@@ -6,11 +6,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConsultaManagerComponent } from './components/consulta/consulta-manager/consulta-manager.component';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ConsultaManagerComponent
+    ConsultaManagerComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

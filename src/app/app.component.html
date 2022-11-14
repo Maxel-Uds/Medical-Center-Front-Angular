@@ -1,15 +1,22 @@
 <body class="app">
-    <header class="header d-xl-flex flex-column">
-        <p class="lead text-muted">Centro Médico</p>
+    <aside class="logo p-2">
+        <img src="../assets/images/medic-simbol.png" routerLink="" alt="logo"/>
+    </aside>
+
+    <header class="header flex-column">
+        <a style="text-decoration: none;" routerLink="">
+            <p class="lead text-muted mt-1">Centro Médico</p>
+        </a>
     </header>
 
     <aside class="menu">
         <hr/>
-        <nav class="links d-xl-grid">            
+        <nav class="links">            
             <a class="link" routerLink="/consulta/gerenciar">Consultas</a>
             <a class="link" routerLink="/consulta/gerenciar">Médicos</a>
             <a class="link" routerLink="/consulta/gerenciar">Pacientes</a>
             <a class="link" routerLink="/consulta/gerenciar">Tipos de Consulta</a>
+            <a class="link" href="https://github.com/Maxel-Uds/Medical-Center-API-CSharp" target="_blank">Repositório Backend</a>
         </nav>
     </aside>
 
