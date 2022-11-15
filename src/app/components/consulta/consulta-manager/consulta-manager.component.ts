@@ -90,9 +90,12 @@ export class ConsultaManagerComponent implements OnInit {
   }
 
   ativarBotao(): void {
+    let btn = document.getElementById("btn");
     if(this.data && this.medicoId && this.tipoId && this.pacienteId) {
-      let btn = document.getElementById("btn");
       btn?.removeAttribute("disabled")
+    }
+    else {
+      btn?.setAttribute("disabled", "true")
     }
   }
 }

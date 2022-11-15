@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ConsultaManagerComponent } from './components/consulta/consulta-manager/consulta-manager.component';
 import { HomeComponent } from './components/home/home.component';
+import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsultaManagerComponent,
-    HomeComponent
+    HomeComponent,
+    MedicoManagerComponent
   ],
   imports: [
     BrowserModule,

@@ -63,13 +63,13 @@
         </thead>
         <tbody class="text-center">
             <tr *ngFor="let consulta of consultas">
-                <td>{{consulta.id}}</td>
-                <td>{{consulta.consultationDate}}</td>
-                <td>{{consulta.tipoConsulta?.name}}</td>
-                <td>{{consulta.paciente?.name}}</td>
-                <td>{{consulta.medico?.name}}</td>
-                <td>{{consulta.medico?.email}}</td>
-                <td>
+                <td class="align-middle">{{consulta.id}}</td>
+                <td class="align-middle">{{consulta.consultationDate}}</td>
+                <td class="align-middle">{{consulta.tipoConsulta?.name}}</td>
+                <td class="align-middle">{{consulta.paciente?.name}}</td>
+                <td class="align-middle">{{consulta.medico?.name}}</td>
+                <td class="align-middle">{{consulta.medico?.email}}</td>
+                <td class="align-middle">
                     <button class="btn btn-danger mx-2" (click)="remover(consulta.id!)">Cancelar consulta</button>
                 </td>
             </tr>
