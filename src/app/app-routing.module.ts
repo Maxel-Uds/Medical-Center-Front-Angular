@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConsultaManagerComponent } from './components/consulta/consulta-manager/consulta-manager.component';
 import { HomeComponent } from './components/home/home.component';
+import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: "medico/gerenciar",
     component: MedicoManagerComponent,
+  },
+  {
+    path: "medico/buscar",
+    component: MedicoBuscarComponent,
   }
 ];
 

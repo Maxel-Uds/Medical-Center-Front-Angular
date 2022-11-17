@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { ConsultaManagerComponent } from './components/consulta/consulta-manager/consulta-manager.component';
 import { HomeComponent } from './components/home/home.component';
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
+import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ConsultaManagerComponent,
     HomeComponent,
-    MedicoManagerComponent
+    MedicoManagerComponent,
+    MedicoBuscarComponent
   ],
   imports: [
     BrowserModule,

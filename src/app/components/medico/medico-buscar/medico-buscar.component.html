@@ -1,0 +1,70 @@
+<form class="was-validated">
+    <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+            <div class="custom-control custom-checkbox mr-sm-2">
+                <label class="custom-control-label lead" for="medicos">Médico:</label>
+            </div>
+        </div>
+        <div class="col-auto my-1 col-6">
+            <select class="custom-select" id="medicos" name="medicos" [(ngModel)]="medicoId" (change)="ativarBotao()" required>
+                <option *ngFor="let medico of medicos" value={{medico.id}}>{{medico.name}}</option>
+            </select>
+        </div>
+      
+      <div class="col-auto my-1">
+        <button class="btn btn-success" (click)="buscarMedico()" id="btn" disabled> Buscar Dados </button>
+      </div>
+    </div>
+</form>
+  
+
+<div class="mt-5" *ngIf="medico">
+    <table class="table table-striped">
+        <thead  class="text-center thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">CRM</th>
+                <th scope="col">Criado Em</th>
+            </tr>
+        </thead>
+        <tbody class="text-center align-bottom">
+            <tr>
+                <td class="align-middle">{{medico.id}}</td>
+                <td class="align-middle">{{medico.name}}</td>
+                <td class="align-middle">{{medico.email}}</td>
+                <td class="align-middle">{{medico.phone}}</td>
+                <td class="align-middle">{{medico.crm}}</td>
+                <td class="align-middle">{{medico.createdAt}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="mt-5" *ngIf="consultas">
+    <table class="table table-striped">
+        <caption>Próximas Consultas do Médico</caption>
+        <thead  class="text-center thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Data da Consulta</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Nome do Paciente</th>
+                <th scope="col">Opções</th>
+            </tr>
+        </thead>
+        <tbody class="text-center">
+            <tr *ngFor="let consulta of consultas">
+                <td class="align-middle">{{consulta.id}}</td>
+                <td class="align-middle">{{consulta.consultationDate}}</td>
+                <td class="align-middle">{{consulta.tipoConsulta?.name}}</td>
+                <td class="align-middle">{{consulta.paciente?.name}}</td>
+                <td class="align-middle">
+                    <button class="btn btn-danger mx-2" (click)="removerConsulta(consulta.id!)">Cancelar consulta</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
