@@ -5,6 +5,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
 import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/paciente-buscar.component';
 
 const routes: Routes = [
   {
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path: "pacientes/gerenciar", 
     component: PacientesComponent, 
+  },
+  {
+    path: "pacientes/buscar", 
+    component: PacienteBuscarComponent, 
   }
 ];
 

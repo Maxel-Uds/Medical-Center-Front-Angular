@@ -1,18 +1,17 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Consulta } from 'src/app/models/Consulta';
-import { Medico } from 'src/app/models/Medico';
+import { Paciente } from 'src/app/models/Paciente';
 
 @Component({
-  selector: 'app-medico-buscar',
-  templateUrl: './medico-buscar.component.html',
-  styleUrls: ['./medico-buscar.component.css']
+  selector: 'app-paciente-buscar',
+  templateUrl: './paciente-buscar.component.html',
+  styleUrls: ['./paciente-buscar.component.css']
 })
-export class MedicoBuscarComponent implements OnInit {
-
-  medicoId!: number;
-  medicos!: Medico[];
-  medico!: Medico;
+export class PacienteBuscarComponent {
+  pacienteId!: number;
+  pacientes!: Paciente[];
+  paciente!: Paciente;
   btn!: HTMLElement | null;
   consultas!: Consulta[] | undefined;
 
@@ -21,16 +20,16 @@ export class MedicoBuscarComponent implements OnInit {
   ngOnInit(): void {
     this.btn = document.getElementById("btn")
 
-    this.http.get<Medico[]>("https://localhost:5001/medico/listar")
+    this.http.get<Paciente[]>("https://localhost:5001/paciente/listar")
       .subscribe({
-        next: (medicos) => {
-          this.medicos = medicos;
+        next: (pacientes) => {
+          this.pacientes = pacientes;
         }
       });
   }
 
   ativarBotao(): void {
-    if(this.medicoId) {
+    if(this.pacienteId) {
       this.btn?.removeAttribute("disabled");
     }
     else {
@@ -38,12 +37,12 @@ export class MedicoBuscarComponent implements OnInit {
     }
   }
 
-  buscarMedico(): void {
-    this.http.get<Medico>(`https://localhost:5001/medico/listar/${this.medicoId}`)
+  buscarPaciente(): void {
+    this.http.get<Paciente>(`https://localhost:5001/paciente/listar/${this.pacienteId}`)
       .subscribe({
-        next: (medico) => {
-          this.medico = medico;
-          this.consultas = medico.consultas?.length === 0 ? undefined : medico.consultas;
+        next: (paciente) => {
+          this.paciente = paciente;
+          // this.consultas = paciente.consultas?.length === 0 ? undefined : paciente.consultas;
           this.ngOnInit();
         },
         error: (erro) => {
@@ -56,9 +55,11 @@ export class MedicoBuscarComponent implements OnInit {
     this.http.delete<Consulta>(`https://localhost:5001/consulta/cancelar/${id}`)
       .subscribe({
         next: (consulta) => {
-          this.buscarMedico();
+          this.buscarPaciente();
           this.ngOnInit();
         }
       });
   }
+
+  
 }

@@ -10,6 +10,7 @@ import { HomeComponent } from './components/home/home.component';
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
 import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
 import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/paciente-buscar.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PacientesComponent } from './components/pacientes/pacientes.component';
     HomeComponent,
     MedicoManagerComponent,
     MedicoBuscarComponent,
-    PacientesComponent
+    PacientesComponent,
+    PacienteBuscarComponent
   ],
   imports: [
     BrowserModule,
