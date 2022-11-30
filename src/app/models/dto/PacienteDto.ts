@@ -1,9 +1,8 @@
-export interface Paciente {
+export interface PacienteDto {
     id?: number;
     name: string;
     email: string;
     phone: string;
-    birthday?: Date,
+    birthday?: Date;
     documentNumber: string;
-    createdAt?: Date;
 }

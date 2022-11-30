@@ -4,6 +4,7 @@ import { ConsultaManagerComponent } from './components/consulta/consulta-manager
 import { HomeComponent } from './components/home/home.component';
 import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
+import { PacientesComponent } from './components/pacientes/pacientes.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: "medico/buscar",
     component: MedicoBuscarComponent,
+  },
+  {
+    path: "pacientes/gerenciar", 
+    component: PacientesComponent, 
   }
 ];
 

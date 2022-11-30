@@ -1,24 +1,25 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { Medico } from 'src/app/models/Medico';
-import { MedicoDto } from 'src/app/models/dto/MedicoDto';
+import { Component } from '@angular/core';
+import { PacienteDto } from 'src/app/models/dto/PacienteDto';
+import { Paciente } from 'src/app/models/Paciente';
 
 @Component({
-  selector: 'app-medico-manager',
-  templateUrl: './medico-manager.component.html',
-  styleUrls: ['./medico-manager.component.css']
+  selector: 'app-pacientes',
+  templateUrl: './pacientes.component.html',
+  styleUrls: ['./pacientes.component.css']
 })
-export class MedicoManagerComponent implements OnInit {
-
+export class PacientesComponent {
+  
   id!: number | undefined;
   nome!: string;
   email!: string;
   phone!: string;
-  crm!: string;
-  medicos!: Medico[];
+  birthday?: Date;
+  documentNumber!: string;
+  pacientes!: Paciente[];
   btnSalvar!: HTMLElement | null;
   btnAlterar!: HTMLElement | null;
-  crmInput!: HTMLElement | null;
+  birthdayInput!: HTMLElement | null;
   displayAlterar: string
   displaySalvar: string
 
@@ -30,58 +31,60 @@ export class MedicoManagerComponent implements OnInit {
   ngOnInit(): void {
     this.btnAlterar = document.getElementById("btnAlterar");
     this.btnSalvar = document.getElementById("btnSalvar");
-    this.crmInput = document.getElementById("crm");
+    this.birthdayInput = document.getElementById("birthday");
 
-    this.http.get<Medico[]>("https://localhost:5001/medico/listar")
+    this.http.get<Paciente[]>("https://localhost:5001/paciente/listar")
       .subscribe({
-        next: (medicos) => {
-          this.medicos = medicos;
+        next: (pacientes) => {
+          this.pacientes = pacientes;
         }
       });
   }
 
-  cadastrarMedico(): void {
-    let medico: Medico = {
+  cadastrarPaciente(): void {
+    let paciente: Paciente = {
       id: this.id,
       name: this.nome,
       email: this.email,
       phone: this.phone,
-      crm: this.crm
+      birthday: this.birthday,
+      documentNumber: this.documentNumber
     }
 
-    this.http.post<Medico>("https://localhost:5001/medico/cadastrar", medico)
+    this.http.post<Paciente>("https://localhost:5001/paciente/cadastrar", paciente)
       .subscribe({
-        next: (medico) => {
+        next: (paciente) => {
           this.ngOnInit();
           this.limparCampos();
         },
         error: (erro) => {
-          alert(`Ocorreu um erro ao cadastrar um médico \n Erro: ${JSON.stringify(erro.error.errors)}`)
+          alert(`Ocorreu um erro ao cadastrar um paciente \n Erro: ${JSON.stringify(erro.error.errors)}`)
         },
     });
   }
 
-  removerMedico(id: number): void {
-    this.http.delete<Medico>(`https://localhost:5001/medico/deletar/${id}`)
+  removerPaciente(id: number): void {
+    this.http.delete<Paciente>(`https://localhost:5001/paciente/deletar/${id}`)
       .subscribe({
-        next: (medico) => {
+        next: (paciente) => {
           this.ngOnInit();
         }
       });
   }
 
-  alterarMedico(): void {
-    let medicoDto: MedicoDto = {
+  alterarPaciente(): void {
+    let pacienteDto: PacienteDto = {
       id: this.id,
       name: this.nome,
       email: this.email,
       phone: this.phone,
-      crm: this.crm
+      birthday: this.birthday,
+      documentNumber: this.documentNumber
     }
 
-    this.http.patch<Medico>("https://localhost:5001/medico/alterar", medicoDto)
+    this.http.patch<Paciente>("https://localhost:5001/paciente/alterar", pacienteDto)
       .subscribe({
-        next: (medico) => {
+        next: (paciente) => {
           this.ngOnInit();
           this.limparCampos();
         },
@@ -92,7 +95,7 @@ export class MedicoManagerComponent implements OnInit {
   }
 
   ativarBotao(): void {
-    if(this.nome && this.email && this.phone && this.crm) {
+    if(this.nome && this.email && this.phone && this.birthday && this.documentNumber) {
       this.removerAtributos()
     }
     else {
@@ -100,13 +103,14 @@ export class MedicoManagerComponent implements OnInit {
     }
   }
 
-  alterarCampos(medico: Medico): void {
-    this.id = medico.id;
-    this.nome = medico.name;
-    this.email = medico.email;
-    this.phone = medico.phone;
-    this.crm = medico.crm;
-    this.crmInput?.setAttribute("readonly", "true")
+  alterarCampos(paciente: Paciente): void {
+    this.id = paciente.id;
+    this.nome = paciente.name;
+    this.email = paciente.email;
+    this.phone = paciente.phone;
+    this.birthdayInput?.setAttribute("readonly", "true")
+    this.birthday = paciente.birthday
+    this.documentNumber = paciente.documentNumber;
 
     this.btnAlterar?.removeAttribute("disabled")
     this.displayAlterar = "block";
@@ -117,11 +121,12 @@ export class MedicoManagerComponent implements OnInit {
     this.nome = "";
     this.email = "";
     this.phone = "";
-    this.crm = "";
+    this.birthday = undefined;
     this.id = undefined;
+    this.documentNumber = "";
     this.displayAlterar = "none";
     this.displaySalvar = "block";
-    this.crmInput?.removeAttribute("readonly")
+    this.birthdayInput?.removeAttribute("readonly")
 
     this.adicionarAtributo()
   }
