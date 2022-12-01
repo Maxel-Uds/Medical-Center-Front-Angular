@@ -1,0 +1,38 @@
+<form class="was-validated">
+    <div class="form-row align-items-center">
+        <div class="col-auto my-1">
+        <label class="col-auto col-form-label" for="consultas">Tipo Consulta:</label>
+        </div>
+        <div class="col-auto my-1 col-6">
+            <select class="custom-select" id="consultas" name="consultas" [(ngModel)]="tipoConsultaId" (change)="ativarBotao()" required>
+                <option *ngFor="let tipoConsulta of tipoConsultas" value={{tipoConsulta.id}} id="">
+                    {{tipoConsulta.name}}</option>
+            </select>
+        </div>
+      
+      <div class="col-auto my-1">
+        <button class="btn btn-success" (click)="buscarTipoConsulta()" id="btn" disabled> Buscar Dados </button>
+      </div>
+    </div>
+</form>
+  
+
+<div class="mt-5" *ngIf="tipoConsulta">
+    <table class="table table-striped">
+        <thead  class="text-center thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Descrição</th>
+            </tr>
+        </thead>
+        <tbody class="text-center align-bottom">
+            <tr>
+                <td class="align-middle">{{tipoConsulta.id}}</td>
+                <td class="align-middle">{{tipoConsulta.name}}</td>
+                <td class="align-middle">{{tipoConsulta.description}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+

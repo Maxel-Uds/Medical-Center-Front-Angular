@@ -8,6 +8,7 @@ import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
 import { PacientesComponent } from './components/pacientes/paciente-manager/pacientes.component';
 import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/paciente-buscar.component';
+import { TipoconsultaBuscarComponent } from './components/tipoConsulta/tipoconsulta-buscar/tipoconsulta-buscar.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: "tipoConsulta/gerenciar",
     component: TipoconsultaManagerComponent,
+  },
+  {
+    path: "tipoConsulta/buscar",
+    component: TipoconsultaBuscarComponent,
   },
   {
     path: "consulta/buscar",

@@ -13,6 +13,7 @@ import { PacientesComponent } from './components/pacientes/paciente-manager/paci
 import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/paciente-buscar.component';
 import { ConsultaBuscarComponent } from './components/consulta/consulta-buscar/consulta-buscar.component';
 import { TipoconsultaManagerComponent } from './components/tipoConsulta/tipoconsulta-manager/tipoconsulta-manager.component';
+import { TipoconsultaBuscarComponent } from './components/tipoConsulta/tipoconsulta-buscar/tipoconsulta-buscar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TipoconsultaManagerComponent } from './components/tipoConsulta/tipocons
     PacientesComponent,
     PacienteBuscarComponent,
     ConsultaBuscarComponent,
-    TipoconsultaManagerComponent
+    TipoconsultaManagerComponent,
+    TipoconsultaBuscarComponent
   ],
   imports: [
     BrowserModule,
