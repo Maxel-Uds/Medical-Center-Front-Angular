@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConsultaManagerComponent } from './components/consulta/consulta-manager/consulta-manager.component';
+import { ConsultaBuscarComponent } from './components/consulta/consulta-buscar/consulta-buscar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
-import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { PacientesComponent } from './components/pacientes/paciente-manager/pacientes.component';
 import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/paciente-buscar.component';
 
 const routes: Routes = [
   {
     path: "consulta/gerenciar",
     component: ConsultaManagerComponent,
+  },
+  {
+    path: "consulta/buscar",
+    component: ConsultaBuscarComponent,
   },
   {
     path: "",

@@ -39,7 +39,7 @@ export class MedicoBuscarComponent implements OnInit {
   }
 
   buscarMedico(): void {
-    this.http.get<Medico>(`https://localhost:5001/medico/listar/${this.medicoId}`)
+    this.http.get<Medico>(`https://localhost:5001/medico/buscar/${this.medicoId}`)
       .subscribe({
         next: (medico) => {
           this.medico = medico;

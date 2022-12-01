@@ -1,35 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Consulta } from 'src/app/models/Consulta';
-import { Paciente } from 'src/app/models/Paciente';
 
 @Component({
-  selector: 'app-paciente-buscar',
-  templateUrl: './paciente-buscar.component.html',
-  styleUrls: ['./paciente-buscar.component.css']
+  selector: 'app-consulta-buscar',
+  templateUrl: './consulta-buscar.component.html',
+  styleUrls: ['./consulta-buscar.component.css']
 })
-export class PacienteBuscarComponent {
-  pacienteId!: number;
-  pacientes!: Paciente[];
-  paciente!: Paciente;
+export class ConsultaBuscarComponent {
+  consultaId!: number;
+  consultas!: Consulta[];
+  consulta!: Consulta;
   btn!: HTMLElement | null;
-  consultas!: Consulta[] | undefined;
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
     this.btn = document.getElementById("btn")
 
-    this.http.get<Paciente[]>("https://localhost:5001/paciente/listar")
+    this.http.get<Consulta[]>("https://localhost:5001/consulta/listar")
       .subscribe({
-        next: (pacientes) => {
-          this.pacientes = pacientes;
+        next: (consultas) => {
+          this.consultas = consultas;
         }
       });
   }
 
   ativarBotao(): void {
-    if(this.pacienteId) {
+    if(this.consultaId) {
       this.btn?.removeAttribute("disabled");
     }
     else {
@@ -37,12 +35,12 @@ export class PacienteBuscarComponent {
     }
   }
 
-  buscarPaciente(): void {
-    this.http.get<Paciente>(`https://localhost:5001/paciente/buscar/${this.pacienteId}`)
+  buscarConsulta(): void {
+    this.http.get<Consulta>(`https://localhost:5001/consulta/listar/${this.consultaId}`)
       .subscribe({
-        next: (paciente) => {
-          this.paciente = paciente;
-          // this.consultas = paciente.consultas?.length === 0 ? undefined : paciente.consultas;
+        next: (consulta) => {
+          this.consulta = consulta;
+          // this.consultas = consulta.consultas?.length === 0 ? undefined : consulta.consultas;
           this.ngOnInit();
         },
         error: (erro) => {
@@ -55,11 +53,10 @@ export class PacienteBuscarComponent {
     this.http.delete<Consulta>(`https://localhost:5001/consulta/cancelar/${id}`)
       .subscribe({
         next: (consulta) => {
-          this.buscarPaciente();
+          this.buscarConsulta();
           this.ngOnInit();
         }
       });
   }
 
-  
 }

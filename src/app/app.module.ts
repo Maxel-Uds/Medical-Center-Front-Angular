@@ -9,8 +9,9 @@ import { ConsultaManagerComponent } from './components/consulta/consulta-manager
 import { HomeComponent } from './components/home/home.component';
 import { MedicoManagerComponent } from './components/medico/medico-manager/medico-manager.component';
 import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
-import { PacientesComponent } from './components/pacientes/pacientes.component';
+import { PacientesComponent } from './components/pacientes/paciente-manager/pacientes.component';
 import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/paciente-buscar.component';
+import { ConsultaBuscarComponent } from './components/consulta/consulta-buscar/consulta-buscar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/
     MedicoManagerComponent,
     MedicoBuscarComponent,
     PacientesComponent,
-    PacienteBuscarComponent
+    PacienteBuscarComponent,
+    ConsultaBuscarComponent
   ],
   imports: [
     BrowserModule,
