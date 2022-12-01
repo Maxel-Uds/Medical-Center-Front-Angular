@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ConsultaManagerComponent } from './components/consulta/consulta-manager/consulta-manager.component';
+import { TipoconsultaManagerComponent } from './components/tipoConsulta/tipoconsulta-manager/tipoconsulta-manager.component';
 import { ConsultaBuscarComponent } from './components/consulta/consulta-buscar/consulta-buscar.component';
 import { HomeComponent } from './components/home/home.component';
 import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-buscar.component';
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: "consulta/gerenciar",
     component: ConsultaManagerComponent,
+  },
+  {
+    path: "tipoConsulta/gerenciar",
+    component: TipoconsultaManagerComponent,
   },
   {
     path: "consulta/buscar",

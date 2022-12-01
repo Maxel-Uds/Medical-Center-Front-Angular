@@ -12,6 +12,7 @@ import { MedicoBuscarComponent } from './components/medico/medico-buscar/medico-
 import { PacientesComponent } from './components/pacientes/paciente-manager/pacientes.component';
 import { PacienteBuscarComponent } from './components/pacientes/paciente-buscar/paciente-buscar.component';
 import { ConsultaBuscarComponent } from './components/consulta/consulta-buscar/consulta-buscar.component';
+import { TipoconsultaManagerComponent } from './components/tipoConsulta/tipoconsulta-manager/tipoconsulta-manager.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ConsultaBuscarComponent } from './components/consulta/consulta-buscar/c
     MedicoBuscarComponent,
     PacientesComponent,
     PacienteBuscarComponent,
-    ConsultaBuscarComponent
+    ConsultaBuscarComponent,
+    TipoconsultaManagerComponent
   ],
   imports: [
     BrowserModule,

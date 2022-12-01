@@ -9,7 +9,6 @@ import { Paciente } from 'src/app/models/Paciente';
   styleUrls: ['./pacientes.component.css']
 })
 export class PacientesComponent {
-  
   id!: number | undefined;
   nome!: string;
   email!: string;

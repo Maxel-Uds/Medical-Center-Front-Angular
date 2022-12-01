@@ -36,7 +36,7 @@ export class ConsultaBuscarComponent {
   }
 
   buscarConsulta(): void {
-    this.http.get<Consulta>(`https://localhost:5001/consulta/listar/${this.consultaId}`)
+    this.http.get<Consulta>(`https://localhost:5001/consulta/buscar/${this.consultaId}`)
       .subscribe({
         next: (consulta) => {
           this.consulta = consulta;
